@@ -1,14 +1,68 @@
-<html>
- <head>
- <title>子枫の博客</title>
-<style>
- body{
-background-color: white
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body{
+    margin: 0;
+    padding: 20px 0;
+}
+div{
+    width: 80vw;
+    min-height: 15vh;
+    background: white;
+    border-radius: 4px;
+    margin: 0 auto;
+    position: relative;
+    border-top: 1px dashed #333;
+}
+div:first-child{
+    border: none;
+}
+
+div::before,div::after{
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 999;
+}
+div::before{
+    left: -10px;
+    top: -10px;
+}
+div::after{
+    right: -10px;
+    top: -10px;
+}
+div:first-child::before,div:first-child::after{
+    content: '';
+    width: 0;
+    height: 0;
 }
 </style>
+
 </head>
 
 <body>
- <h4>子枫网络维护中...</h4>
+  <h4 style="color:red">Dragon shadow API</h4>
+  <div><p>api使用教程:</p>
+  <p><a href="https://tainqi.github.io/api/" style="background-color: black;color:white">https://tainqi.github.io/api/</a></p>
+  <p>返回格式:JSON 请求格式:GET</p>
+  <p>By:子枫ZIF</p></div>
+  <p style="text-align:center;">Copyright(C)Dragon shadow API™</p>
+  <!-- Project -->
+  <script src="main.js"></script>
 </body>
 </html>
