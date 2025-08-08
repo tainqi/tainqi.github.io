@@ -1,0 +1,12 @@
+# _config.yml
+
+# 使用 kramdown 作为 Markdown 解析器
+markdown: kramdown
+
+# 使用 rouge 作为语法高亮引擎
+highlighter: rouge
+
+# 可选：启用 GitHub Pages 默认插件
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
