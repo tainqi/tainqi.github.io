@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>78Ham&org</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				min-height: 100vh;
+				padding: 20px;
+				line-height: 1.6;
+			}
+			
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				background: rgba(255, 255, 255, 0.95);
+				border-radius: 20px;
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+				padding: 40px;
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+			}
+			
+			.header {
+				text-align: center;
+				margin-bottom: 30px;
+			}
+			
+			.header h3 {
+				color: #333;
+				font-size: 1.8em;
+				margin-bottom: 10px;
+				font-weight: 300;
+				letter-spacing: 2px;
+			}
+			
+			.divider {
+				height: 2px;
+				background: linear-gradient(90deg, transparent, #667eea, transparent);
+				margin: 20px 0;
+				border: none;
+			}
+			
+			.avatar {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				margin: 20px auto;
+				border: 4px solid #667eea;
+				padding: 4px;
+				background: white;
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+			}
+			
+			.avatar img {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+			
+			.call-sign {
+				background: linear-gradient(135deg, #667eea, #764ba2);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				font-size: 2.5em;
+				font-weight: bold;
+				margin: 20px 0;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+			}
+			
+			.content {
+				background: #f8f9fa;
+				padding: 25px;
+				border-radius: 15px;
+				border-left: 4px solid #667eea;
+				margin-top: 20px;
+			}
+			
+			.content pre {
+				white-space: pre-wrap;
+				word-wrap: break-word;
+				font-family: 'Courier New', monospace;
+				color: #555;
+				line-height: 1.8;
+				font-size: 1.1em;
+			}
+			
+			.radio-wave {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 50px;
+				margin: 30px 0;
+			}
+			
+			.wave {
+				width: 8px;
+				height: 30px;
+				background: #667eea;
+				margin: 0 3px;
+				border-radius: 4px;
+				animation: wave 1.2s infinite ease-in-out;
+			}
+			
+			.wave:nth-child(2) { animation-delay: -1.1s; }
+			.wave:nth-child(3) { animation-delay: -1.0s; }
+			.wave:nth-child(4) { animation-delay: -0.9s; }
+			.wave:nth-child(5) { animation-delay: -0.8s; }
+			
+			@keyframes wave {
+				0%, 40%, 100% { transform: scaleY(0.4); }
+				20% { transform: scaleY(1.0); }
+			}
+			
+			.footer {
+				text-align: center;
+				margin-top: 30px;
+				color: #666;
+				font-size: 0.9em;
+			}
+			
+			.ham-badge {
+				display: inline-block;
+				background: #ff6b6b;
+				color: white;
+				padding: 5px 15px;
+				border-radius: 20px;
+				font-size: 0.8em;
+				margin-top: 10px;
+				font-weight: bold;
+			}
+			
+			/* 响应式设计 */
+			@media (max-width: 768px) {
+				.container {
+					padding: 20px;
+					margin: 10px;
+				}
+				
+				.call-sign {
+					font-size: 2em;
+				}
+				
+				.avatar {
+					width: 100px;
+					height: 100px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h3>78Ham&org</h3>
+				<hr class="divider">
+			</div>
+			
+			<div class="avatar">
+				<img src="http://api.mmp.cc/api/qqgroup?text=953245727" alt="78HAM Avatar">
+			</div>
+			
+			<div style="text-align: center;">
+				<h1 class="call-sign" onclick="window.location.href='https://qm.qq.com/q/Cet5zU264w'">78HAM 交流群</h1>
+			</div>
+			
+			<div class="radio-wave">
+				<div class="wave"></div>
+				<div class="wave"></div>
+				<div class="wave"></div>
+				<div class="wave"></div>
+				<div class="wave"></div>
+			</div>
+			
+			<div class="content">
+				<pre>欢迎来到78Ham&org群空间！
+
+关于本站：
+• 交流通信技术和电子制作
+• 供全国的HAM朋友交流
+
+联系方式：
+群号：953245727（可从本页点击名称进入）
+邮箱：ks19535@163.com（本站创建者邮箱，非群主）</pre>
+			</div>
+			
+			<div class="footer">
+				<div class="ham-badge">73! DE BG11451</div>
+				<p style="margin-top: 10px;">&copy; 2024 78Ham&org · 保持通联！</p>
+			</div>
+		</div>
+	</body>
+</html>
