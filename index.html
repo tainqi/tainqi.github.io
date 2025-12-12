@@ -4,6 +4,16 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>No page</title>
+		<style>
+html {
+filter:grayscale(100%);
+-webkit-filter:grayscale(100%);
+-moz-filter:grayscale(100%);
+-ms-filter:grayscale(100%);
+-o-filter:grayscale(100%);
+-webkit-filter:grayscale(1);
+}
+		</style>
         <style type="text/css">
         	div {
   /* 基本格式：水平偏移 垂直偏移 模糊半径 扩散半径 颜色 */
@@ -45,6 +55,79 @@
     <p class="copy">Copyright &copy; 2025 Qunspace/Tips:点击名称有惊喜！</p>
 </footer>
    </div>
+		<div class="memorial-banner">
+  <div class="banner-header">
+    <h1>沉痛悼念南京大屠杀死难者</h1>
+    <p>国家公祭日 · 铭记历史 珍爱和平</p>
+  </div>
+  <div class="memorial-date">1937.12.13</div>
+</div>
+
+<style>
+.memorial-banner {
+  width: 100%;
+  background: #111;
+  color: white;
+  border-bottom: 3px solid #8b0000;
+  text-align: center;
+  padding: 20px 0;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+
+.banner-header h1 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.banner-header p {
+  font-size: 16px;
+  color: #ccc;
+  margin: 0;
+}
+
+.memorial-date {
+  font-size: 20px;
+  color: #d4af37;
+  margin-top: 15px;
+  font-weight: bold;
+}
+</style>
+		<audio id="memorial-music" loop preload="metadata">
+  <source src="http://aqqmusic.tc.qq.com/C400004btN9s3LdFC7.m4a?guid=853904892&vkey=2441B2D9273DE1B4A4D6D4547C14EA7146096CBD7768DE078BD41D3D472B94BF3052A97A576951729B31194A9EC8C1B63DC38520AAFE121E__v215192d86&uin=&fromtag=123032&src=C400002W2ZqZ3bMkdP.m4a" type="audio/mpeg">
+  您的浏览器不支持音频元素
+</audio>
+
+<button onclick="toggleMusic()" class="music-btn">
+  <i class="music-icon"></i> 背景音乐
+</button>
+
+<style>
+.music-btn {
+  background: rgba(0,0,0,0.7);
+  color: white;
+  border: 1px solid #666;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+</style>
+
+<script>
+let isPlaying = false;
+const audio = document.getElementById('memorial-music');
+
+function toggleMusic() {
+  if (isPlaying) {
+    audio.pause();
+  } else {
+    audio.play().catch(e => console.log("自动播放被阻止，请手动点击"));
+  }
+  isPlaying = !isPlaying;
+}
+</script>
         </center>
 	</body>
 </html>
