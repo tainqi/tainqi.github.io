@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Qunspace</title>
+    <style type="text/css">
+        :root {
+            --card-bg: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-muted: #888888;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --hover-shadow: rgba(0, 0, 0, 0.15);
+            --primary-color: #3498db;
+            --link-hover: #2980b9;
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 24px var(--shadow-color);
+            width: 100%;
+            padding: 40px 30px;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+        }
+        
+        .card:hover {
+            box-shadow: 0 12px 32px var(--hover-shadow);
+            transform: translateY(-4px);
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed) ease;
+            margin-bottom: 20px;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-speed) ease;
+        }
+        
+        .title:hover {
+            color: var(--link-hover);
+        }
+        
+        .title:hover::after {
+            width: 100%;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 25px 0;
+            width: 100%;
+        }
+        
+        .content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
+        .group-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            width: 100%;
+        }
+        
+        .group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .group-item:hover {
+            background: #f0f2f5;
+            transform: translateX(8px);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .group-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .group-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 6px;
+            background: #e8f4fc;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .group-link:hover {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            width: 100%;
+        }
+        
+        .copy {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .copy span {
+            color: var(--primary-color);
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color var(--transition-speed) ease;
+        }
+        
+        .copy span:hover {
+            color: var(--link-hover);
+        }
+        
+        /* 响应式设计 - 适应所有屏幕比例 */
+        
+        /* 平板设备 */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 500px;
+            }
+            
+            .card {
+                padding: 35px 25px;
+            }
+            
+            .title {
+                font-size: 26px;
+            }
+            
+            .logo {
+                width: 75px;
+                height: 75px;
+            }
+        }
+        
+        /* 手机设备 */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .content {
+                font-size: 15px;
+            }
+            
+            .group-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+        
+        /* 小屏幕手机 */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 95%;
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 25px 15px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .logo {
+                width: 65px;
+                height: 65px;
+            }
+            
+            .content {
+                font-size: 14px;
+            }
+            
+            .copy {
+                font-size: 13px;
+            }
+        }
+        
+        /* 超小屏幕手机 */
+        @media (max-width: 375px) {
+            .card {
+                padding: 20px 12px;
+            }
+            
+            .title {
+                font-size: 20px;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        /* 横屏设备 */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                max-width: 500px;
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 20px 15px;
+            }
+            
+            .title {
+                margin: 10px 0;
+            }
+            
+            hr {
+                margin: 15px 0;
+            }
+            
+            .content {
+                margin-bottom: 20px;
+            }
+            
+            footer {
+                margin-top: 20px;
+                padding-top: 15px;
+            }
+        }
+        
+        /* 大屏幕/电视 */
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 500px;
+            }
+            
+            .card {
+                padding: 50px 40px;
+            }
+            
+            .title {
+                font-size: 32px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .content {
+                font-size: 18px;
+            }
+        }
+        
+        /* 超大屏幕 */
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 550px;
+            }
+            
+            .title {
+                font-size: 36px;
+            }
+            
+            .content {
+                font-size: 20px;
+            }
+        }
+        
+        /* 防止内容溢出屏幕 */
+        @media (max-height: 700px) {
+            body {
+                align-items: flex-start;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="content-wrapper">
+                <img src="http://api.mmp.cc/api/qqgroup?text=953245727" 
+                     class="logo" 
+                     alt="Qunspace Logo">
+                
+                <h1 class="title" onclick="window.location.href='https://b23.tv/7xEoIKq'">
+                    (乱)七八(糟)地方的HAM “铭记历史，勿忘国耻”
+                </h1>
+                
+                <hr>
+                
+                <p class="content">
+                    CRAC得了MVP！
+                </p>
+                
+                <ul class="group-list">
+                    <li class="group-item">
+                        <span class="group-name">78HAM 大群</span>
+                        <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=7kMkYfB2MTpTnkIabuzYYZE5HvR4T866KVuoGh4nyWGNejaSDRgmNwOWCtrtJk94&busi_data=eyJncm91cENvZGUiOiI5NTMyNDU3MjciLCJ0b2tlbiI6Inp1VHRnQUxTeExHMDBKVkxkYXVZcFMwdi80eVduUGhBbCs1T1RuRXMxYUs0QmRvZzZud2JIZHdQWGIvejFDTkciLCJ1aW4iOiIzOTk4MTU0MjgxIn0=&data=yK_a5UjUFyPMvsWmEbAf3nx0gaIXgp71L19FOZm3bY8l43U0OgAkVo1saDRjRWFONA91lNfJkODeGOA-wUT2CQ&svctype=4&tempid=h5_group_info" class="group-link">953245727</a>
+                    </li>
+                    <li class="group-item">
+                   <span class="group-name">78HAM 公告分发群</span>
+                   <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=16CWYmsRxXnknrTik9TnPyZKjai4jmwNOIijY4hH70qDVoH56T8uRKb5SCL9frnl&busi_data=eyJncm91cENvZGUiOiIxMzcxNTEzMDUiLCJ0b2tlbiI6Im96N1VsTHlDVGFiOXB3MXJxdWl4OGVHaisvYnJSU0ZNMlM3SFJZcndIY2xZc1VFTGpnanJ2c1BvQzNFZ1BaNTkiLCJ1aW4iOiIzOTk4MTU0MjgxIn0%3D&data=9SagVdcpEy6sPSKclNQAlZzxl9aAjoMODVuXHbzLD-4RuXkiJGDQ5iKn4tGM5Te7hKsK5UO1Q8XRU6dilD0IzA&svctype=4&tempid=h5_group_info" class="group-link">137151305</a>
+                  </li>
+                </ul>
+                
+                <hr>
+                
+                <footer>
+                    <p class="copy">
+                        Copyright &copy; 2025 Qunspace
+                        <br>
+                        <span onclick="window.location.href='https://b23.tv/7xEoIKq'">Tips: 点击名称有惊喜！</span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
